@@ -8,4 +8,8 @@ add_executable(main
         avl.c
         fileio.c
         search.c
-        tree.c)
+        tree.c
+        tree.h
+        search.h
+        fileio.h
+        avl.h)
