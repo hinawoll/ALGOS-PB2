@@ -3,11 +3,10 @@
 
 typedef struct tnode {
     int key;
-    struct tnode *left;
-    struct tnode *right;
+    struct tnode *left;//für kleinere Knoten
+    struct tnode *right;//für größere Knoten
 } tnode;
 
-// Funktionen
 tnode* insert(tnode* root, int key);
 void freeTree(tnode* root);
 
