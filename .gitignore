@@ -27,3 +27,7 @@ Release/
 # Windows (falls relevant)
 Thumbs.db
 Desktop.ini
+
+# CLion / JetBrains
+.idea/
+cmake-build-*/
