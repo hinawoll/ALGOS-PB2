@@ -9,5 +9,6 @@ typedef struct tnode {
 
 tnode* insert(tnode* root, int key);
 void freeTree(tnode* root);
+static tnode* createNode(int key);
 
 #endif
