@@ -7,7 +7,12 @@ typedef struct tnode {
     struct tnode *right;//für größere Knoten
 } tnode;
 
-tnode* insert(tnode* root, int key);
+tnode* createNode(int key);
+tnode* insertNode(tnode* root, int key);
 void freeTree(tnode* root);
+
+//zum debugging
+void inorder(tnode* root);
+
 
 #endif
