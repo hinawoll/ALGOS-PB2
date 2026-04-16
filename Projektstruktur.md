@@ -1,82 +1,80 @@
-# Projektstruktur (empfohlen – minimal & konfliktarm)
+# 📁 Projektstruktur
 
-Um Merge-Konflikte in Git zu vermeiden und die Aufgabe **TREECHECK**  effizient umzusetzen, verwenden wir folgende minimale Struktur:
+Dieses Projekt implementiert die Aufgabe **TREECHECK** .
+Die Struktur ist so aufgebaut, dass **Merge-Konflikte minimiert** und die Arbeit klar getrennt wird.
 
 ```text
-treecheck/
 ├── main.c
-├── tree.h
-├── tree.c
-├── analysis.h
-├── analysis.c
-├── io.h
-├── io.c
-├── search.h
-├── search.c
-├── Makefile
-└── testfiles/
+├── tree.c / tree.h
+├── avl.c / avl.h
+├── fileio.c / fileio.h
+├── search.c / search.h
+├── tree.txt
+├── README.md
+├── CMakeLists.txt
+└── .gitignore
 ```
 
 ---
 
 # 👥 Aufgabenverteilung
 
-## 👤 Person 1 – Datenstruktur (Baum)
+## 👤 Hina – Datenstruktur (Binary Search Tree)
 
 **Dateien:**
 
-* `tree.h`
 * `tree.c`
+* `tree.h`
 
 **Aufgaben:**
 
 * Definition von `struct tnode`
-* Einfügen in den binären Suchbaum (`insert`)
+* Einfügen in den Baum (`insert`)
 * Speicherverwaltung
 
 ---
 
-## 👤 Person 2 – Analyse (AVL & Logik)
+## 👤 Sophia – AVL-Check & Suche
 
 **Dateien:**
 
-* `analysis.h`
-* `analysis.c`
-* `search.h`
+* `avl.c`
+* `avl.h`
 * `search.c`
+* `search.h`
 
 **Aufgaben:**
 
-* Höhe berechnen
-* Balancefaktor bestimmen
-* AVL-Baum überprüfen
+* Höhe berechnen (`height`)
+* Balancefaktor berechnen (`getBalance`)
+* AVL-Eigenschaft überprüfen (`checkAVL`)
 * Suche im Baum:
 
-  * einfache Suche
+  * einfache Suche (Key)
   * Subtree-Suche
 
 ---
 
-## 👤 Person 3 – I/O & Main
+## 👤 Micheal – Datei & Main
 
 **Dateien:**
 
-* `io.h`
-* `io.c`
+* `fileio.c`
+* `fileio.h`
 * `main.c`
 
 **Aufgaben:**
 
 * Datei einlesen (Inputfile)
 * Baum aufbauen (`insert`)
-* Funktionen verbinden
-* Ausgabe (AVL, Statistik, Suche)
+* Programmsteuerung (`main`)
+* Ausgabe der Ergebnisse
 
 ---
 
-# 🔗 Gemeinsame Schnittstelle
+# 🔗 Gemeinsame Struktur
 
-Die Struktur `tnode` wird zentral in `tree.h` definiert:
+Alle arbeiten mit derselben Baumstruktur aus `tree.h`:
 
 ```c
 typedef struct tnode {
@@ -86,15 +84,15 @@ typedef struct tnode {
 } tnode;
 ```
 
-👉 Diese Definition darf nicht mehrfach geändert werden!
+👉 Diese Struktur ist zentral und darf nicht geändert werden, ohne das Team abzusprechen.
 
 ---
 
-# ⚠️ Wichtige Hinweise
+# ⚠️ Wichtige Regeln
 
-* Jede Person arbeitet **nur an eigenen Dateien**
-* `main.c` wird **nur von Person 3** bearbeitet
-* Funktionsnamen und Parameter müssen vorher abgestimmt werden
+* Jede Person arbeitet nur an ihren eigenen Dateien
+* `main.c` wird nur von Person 3 bearbeitet
+* Funktionsschnittstellen müssen vorher festgelegt werden
 * Ausgabeformat muss exakt der Aufgabenstellung entsprechen
 
 ---
@@ -102,5 +100,5 @@ typedef struct tnode {
 # 🎯 Ziel
 
 * Klare Trennung der Verantwortlichkeiten
-* Minimale Git-Konflikte
-* Einfache Integration der einzelnen Teile
+* Einfache Zusammenarbeit mit Git
+* Minimierung von Merge-Konflikten
