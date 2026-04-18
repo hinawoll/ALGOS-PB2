@@ -4,7 +4,6 @@
 #include <string.h>
 #include "tree.h"
 
-void menu();
 tnode* loadtree(char* dateiname, tnode* root);
 void minmaxavg(tnode* root, int* minimum, int* maximum, double* sum, double* counter);
 
