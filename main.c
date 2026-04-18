@@ -19,27 +19,33 @@ int main(void) {
     scanf("%s", filename);
     root = loadtree(filename, root);
     minmaxavg(root, &minimum, &maximum, &sum, &counter);
-
-    if(counter > 0)
+    if(root == NULL)
     {
-        avg = sum/counter;
-
-    }
-    else
-    {
+        printf("Diese Datei ist leer!\n");
         avg = minimum = maximum = 0;
-    }
-    checkAVL(root, &isAVL);
-
-    if (isAVL)
-        printf("AVL: yes\n");
-    else
-    {
-        printf("AVL: no\n");
         printf("min: %d, max: %d, avg: %.1lf", minimum, maximum, avg);
     }
+    else
+    {
+        if(counter > 0)
+        {
+            avg = sum/counter;
+        }
+        else
+        {
+            avg = minimum = maximum = 0;
+        }
+        checkAVL(root, &isAVL);
 
-
+        if (isAVL)
+            printf("AVL: yes\n");
+        else
+        {
+            printf("AVL: no\n");
+            printf("min: %d, max: %d, avg: %.1lf", minimum, maximum, avg);
+        }
+    }
     freeTree(root);
+
     return 0;
 }

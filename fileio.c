@@ -4,7 +4,7 @@
 
 void menu()
 {
-    printf("treecheck: \n");
+    printf("treecheck: ");
 }
 
 tnode* loadtree(char* dateiname, tnode* root)
