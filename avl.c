@@ -1,5 +1,5 @@
-#include "tree.h"
 #include <stdio.h>
+#include "tree.h"
 
 //Höhe eines Knotens
 int height(tnode* node) {
@@ -22,31 +22,30 @@ int getBalance(tnode* node)
     return height(node->right) - height(node->left);
 }
 
-
-//einfache isAVL, TODO: Laufzeit verbessern
-int isAVL(tnode* root)
+//Variable isAVL in main anlegen!
+//Laufzeit O(n), da jeder Knoten nur einmal besucht wird, Depth First Search
+int checkAVL(tnode* node, int* isAVL)
 {
-    if (root == NULL) return 1;
+    if (node == NULL)
+        return 0;
 
-    int leftOK = isAVL(root->left);
-    int rightOK = isAVL(root->right);
+    int leftHeight = checkAVL(node->left, isAVL);
+    int rightHeight = checkAVL(node->right, isAVL);
 
-    int balance = getBalance(root);
+    int balance = rightHeight - leftHeight;
 
-    printf("bal(%d) = %d", root->key, balance);
-
-    int currentOK;
+    printf("bal(%d) = %d", node->key, balance);
 
     if (balance < -1 || balance > 1)
     {
-        currentOK = 0;
+        *isAVL = 0;
         printf(" (AVL violation!)");
     }
-    else
-    {
-        currentOK = 1;
-    }
-    printf("\n");
-    return currentOK && leftOK && rightOK;
-}
 
+    printf("\n");
+
+    if (leftHeight > rightHeight)
+        return leftHeight + 1;
+    else
+        return rightHeight + 1;
+}

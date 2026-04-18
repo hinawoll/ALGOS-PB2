@@ -1,8 +1,9 @@
 #ifndef AVL_H
 #define AVL_H
+typedef struct tnode tnode; //vorläufige Typdefinition
 
 int height(tnode* node);
 int getBalance(tnode* node);
-int isAVL(tnode* root);
+int checkAVL(tnode* root, );
 
 #endif
