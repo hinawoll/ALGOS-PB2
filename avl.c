@@ -29,8 +29,8 @@ int checkAVL(tnode* node, int* isAVL)
     if (node == NULL)
         return 0;
 
-    int leftHeight = checkAVL(node->left, isAVL);
     int rightHeight = checkAVL(node->right, isAVL);
+    int leftHeight = checkAVL(node->left, isAVL);
 
     int balance = rightHeight - leftHeight;
 
