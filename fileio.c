@@ -7,7 +7,7 @@ void menu()
     printf("treecheck: \n");
 }
 
-tnode* loadtree(char* dateiname, tnode* root, int entries)//entries ist die anzahl der einträge des baumes
+tnode* loadtree(char* dateiname, tnode* root)
 {
     FILE* file;
     int key = 0;
@@ -17,10 +17,7 @@ tnode* loadtree(char* dateiname, tnode* root, int entries)//entries ist die anza
         printf("Datei konnte nicht geöffnet werden!\n");
         return root;
     }
-    else if(entries > 0)
-    {
-        freeTree(root);//wenn der baum einträge hat dann wird er resetted
-    }
+        freeTree(root);//baum wird bereinigt
 
     while(fscanf(file, "%d", &key) != EOF)
     {
@@ -37,8 +34,6 @@ void minmaxavg(tnode* root, int* minimum, int* maximum, double* sum, double* cou
     {
         return;
     }
-
-
     minmaxavg(root->left, minimum, maximum, sum, counter);
 
     if (root->key < *minimum)
@@ -49,8 +44,6 @@ void minmaxavg(tnode* root, int* minimum, int* maximum, double* sum, double* cou
 
     *sum = *sum + root->key;
     *counter = *counter + 1;
-
-
     minmaxavg(root->right, minimum, maximum, sum, counter);
 }
 
