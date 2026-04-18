@@ -7,22 +7,39 @@
 
 int main(void) {
     char filename[256];
+    tnode* root = NULL;
     int isAVL = 1;
-    int *minimum, *maximum;
-    double* sum, *avg, *counter;
-    *avg = *sum / *counter;
-    tnode* root = (tnode*)malloc(sizeof(tnode));
+    int minimum, maximum;
+    minimum = 1000;
+    maximum = 0;
+    double sum, avg, counter;
+
+
     menu();
     scanf("%s", filename);
     root = loadtree(filename, root);
+    minmaxavg(root, &minimum, &maximum, &sum, &counter);
 
-    checkAVL(root, &isAVL);
+    if(counter > 0)
+    {
+        avg = sum/counter;
 
-    if (isAVL)
-        printf("AVL: yes\n");
+    }
     else
-        printf("AVL: no\n");
+    {
+        avg = minimum = maximum = 0;
+    }
+        checkAVL(root, &isAVL);
 
-    printf("min: %d, max: %d, avg: %lf");
+        if (isAVL)
+            printf("AVL: yes\n");
+        else
+        {
+            printf("AVL: no\n");
+            printf("min: %d, max: %d, avg: %.1lf", minimum, maximum, avg);
+        }
+
+
+    freeTree(root);
     return 0;
 }

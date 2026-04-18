@@ -4,6 +4,6 @@ typedef struct tnode tnode; //vorläufige Typdefinition
 
 int height(tnode* node);
 int getBalance(tnode* node);
-int checkAVL(tnode* root, );
+int checkAVL(tnode* root, int* isAVL);
 
 #endif
