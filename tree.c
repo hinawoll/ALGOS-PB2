@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "tree.h"
 
-tnode* createNode(int key) {
+tnode* createNode(int key) {//static: benutzbar nur in tree.c
     tnode* node = (tnode*)malloc(sizeof(tnode));
     if (node == NULL) {
         return NULL;
@@ -18,12 +18,17 @@ tnode* insertNode(tnode* root, int key) {
     if (root == NULL) {
         return createNode(key);
     }
+    if(root->key == key)//duplikate werden verworfen
+    {
+        return root;
+    }
 
     if (key < root->key) {
         root->left = insertNode(root->left, key);
     } else if (key > root->key) {
         root->right = insertNode(root->right, key);
     }
+
     return root;
 }
 
