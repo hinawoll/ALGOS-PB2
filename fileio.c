@@ -11,10 +11,15 @@ tnode* loadtree(char* dateiname, tnode* root)
 {
     FILE* file;
     int key = 0;
-    file = fopen(dateiname, "r");
+
+    char fullpath[300];
+    sprintf(fullpath, "textfiles/%s", dateiname);
+
+    file = fopen(fullpath, "r");
+
     if(file == NULL)
     {
-        printf("Datei konnte nicht geöffnet werden!\n");
+        printf("Datei konnte nicht geÃ¶ffnet werden!\n");
         return root;
     }
         freeTree(root);//baum wird bereinigt
