@@ -2,10 +2,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-void menu()
-{
-    printf("treecheck: ");
-}
 
 tnode* loadtree(char* dateiname, tnode* root)
 {
