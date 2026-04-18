@@ -9,7 +9,7 @@ git pull
 ### 2. In den eigenen Branch wechseln und main mergen
 
 ```bash
-git checkout Hina
+git checkout branchname
 git merge main
 ```
 
@@ -35,7 +35,7 @@ git push
 ```bash
 git checkout main
 git pull
-git checkout Hina
+git checkout branchname
 git merge main
 git push
 ```
