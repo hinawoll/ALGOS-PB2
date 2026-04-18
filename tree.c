@@ -18,12 +18,17 @@ tnode* insertNode(tnode* root, int key) {
     if (root == NULL) {
         return createNode(key);
     }
+    if(root->key == key)//duplikate werden verworfen
+    {
+        return root;
+    }
 
     if (key < root->key) {
         root->left = insertNode(root->left, key);
     } else if (key > root->key) {
         root->right = insertNode(root->right, key);
     }
+
     return root;
 }
 
