@@ -41,14 +41,3 @@ void freeTree(tnode* root) {
     freeTree(root->right);
     free(root);
 }
-
-//zum debugging
-void inorder(tnode* root) {
-    if (root == NULL) {
-        return;
-    }
-
-    inorder(root->left);
-    printf("%d ", root->key);
-    inorder(root->right);
-}

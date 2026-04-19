@@ -27,6 +27,7 @@ tnode* loadtree(char* dateiname, tnode* root)
     return root;
 }
 
+//min, max und avg werden durch eine Traversierung eines Baumes berechnet
 void minmaxavg(tnode* root, int* minimum, int* maximum, double* sum, double* counter)
 {
     if(root == NULL)
