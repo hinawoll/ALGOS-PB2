@@ -55,20 +55,18 @@ int searchKeyPath(tnode* root, int key) {
 }
 
 //für Subtree Suche
-int sameTree(tnode* a, tnode* b) {
-    if (a == NULL && b == NULL) {
+static int findNode(tnode* root, int key, tnode** found) {
+    if (root == NULL) return 0;
+
+    if (root->key == key) {
+        *found = root;
         return 1;
     }
 
-    if (a == NULL || b == NULL) {
-        return 0;
-    }
-
-    if (a->key != b->key) {
-        return 0;
-    }
-
-    return sameTree(a->left, b->left) && sameTree(a->right, b->right);
+    if (key < root->key)
+        return findNode(root->left, key, found);
+    else
+        return findNode(root->right, key, found);
 }
 
 int containsSubtree(tnode* root, tnode* subtree) {
@@ -80,10 +78,12 @@ int containsSubtree(tnode* root, tnode* subtree) {
         return 0;
     }
 
-    if (sameTree(root, subtree)) {
-        return 1;
+    tnode* match = NULL;
+    if (!findNode(root, subtree->key, &match)) {
+        return 0;
     }
 
-    return containsSubtree(root->left, subtree) || containsSubtree(root->right, subtree);
+    return containsSubtree(match->left, subtree->left) &&
+           containsSubtree(match->right, subtree->right);
 }
 

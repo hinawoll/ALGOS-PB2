@@ -73,6 +73,7 @@ int main(int argCount, char *argVector[])
         freeTree(subtree);
         return 0;
     }
+    //falsche Eingabe
     printf("Eingabe: treecheck filename\n");
     printf("   oder: treecheck filename-suchbaum filename-subtree\n");
     return 1;
