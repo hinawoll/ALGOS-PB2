@@ -23,8 +23,9 @@ static int printPath(tnode* root, int key) {
     if (root->right != NULL) {
             printf(", ");
         }
-        return printPath(root->right, key);
-    }
+    return printPath(root->right, key);
+}
+
 
 int searchKeyPath(tnode* root, int key) {
     printf("%d ", key);
