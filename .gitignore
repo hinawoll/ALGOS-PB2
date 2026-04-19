@@ -30,4 +30,4 @@ Desktop.ini
 
 # CLion / JetBrains
 .idea/
-cmake-build-*/
+cmake-build-*/treecheck
