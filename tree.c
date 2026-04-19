@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "tree.h"
 
-tnode* createNode(int key) {//static: benutzbar nur in tree.c
+tnode* createNode(int key) {
     tnode* node = (tnode*)malloc(sizeof(tnode));
     if (node == NULL) {
         return NULL;
