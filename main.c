@@ -15,6 +15,7 @@ int main(void) {
     double sum, avg, counter;
 
 
+
     menu();
     scanf("%s", filename);
     root = loadtree(filename, root);
