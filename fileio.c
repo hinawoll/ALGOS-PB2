@@ -8,24 +8,22 @@ tnode* loadtree(char* dateiname, tnode* root)
     FILE* file;
     int key = 0;
 
-    char fullpath[300];
-    sprintf(fullpath, "textfiles/%s", dateiname);
+    file = fopen(dateiname, "r");
 
-    file = fopen(fullpath, "r");
-
-    if(file == NULL)
+    if (file == NULL)
     {
         printf("Datei konnte nicht geöffnet werden!\n");
         return root;
     }
-        freeTree(root);//baum wird bereinigt
 
-    while(fscanf(file, "%d", &key) != EOF)
+    freeTree(root);
+
+    while (fscanf(file, "%d", &key) != EOF)
     {
         root = insertNode(root, key);
     }
-    fclose(file);
 
+    fclose(file);
     return root;
 }
 
