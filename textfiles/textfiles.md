@@ -31,11 +31,15 @@
 *AVL (5 3 7)
   ```c
   ./treecheck textfiles/tree_basic.txt
+  ```
+```c
   treecheck.exe textfiles/tree_basic.txt
   ```
 *kein AVL (1 2 3 4 5)
   ```c
 　./treecheck textfiles/tree_unbalanced.txt
+  ```
+```c
   treecheck.exe textfiles/tree_unbalanced.txt
   ```
 
@@ -43,22 +47,31 @@
 *case1: found (5 3 8 7 22 2 / 7)
   ```c
   ./treecheck textfiles/tree_normal.txt textfiles/search_key.txt
+  ```
+  ```c
   treecheck.exe textfiles/tree_normal.txt textfiles/search_key.txt
   ```
+
 *case2: not found (5 3 8 7 22 2 / 1)
   ```c
   ./treecheck textfiles/tree_normal.txt textfiles/search_notfound.txt
-  treecheck.exe textfiles/tree_normal.txt textfiles/search_notfound.txt
+  ```
+```c
+   treecheck.exe textfiles/tree_normal.txt textfiles/search_notfound.txt
   ```
 
 **2-2. Subtree Suche**
 *case1: found (5 3 8 7 22 2 / 5 7)
   ```c
   ./treecheck textfiles/tree_normal.txt textfiles/subtree_found.txt
+  ```
+```c
   treecheck.exe textfiles/tree_normal.txt textfiles/subtree_found.txt
   ```
 *case2: not found (5 3 8 7 22 2 / 7 2)
   ```c
   ./treecheck textfiles/tree_normal.txt textfiles/subtree_notfound.txt
+  ```
+```c
   treecheck.exe textfiles/tree_normal.txt textfiles/subtree_notfound.txt
   ```
