@@ -5,7 +5,8 @@
 
 //für Einfache Suche (für den Fall mit einer Datei mit nur einen Knoten)
 int searchKeyPath(tnode* root, int key);
-//prüfen, ob das root das Subtree enthält
+// Subtree-Suche
 int containsSubtree(tnode* root, tnode* subtree);
+
 
 #endif

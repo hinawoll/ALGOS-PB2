@@ -8,14 +8,11 @@ static int printPath(tnode* root, int key)
     {
         return 0;
     }
-
     printf("%d", root->key);
-
     if (key == root->key)
     {
         return 1;
     }
-
     if (key < root->key)
     {
         if (root->left != NULL)
@@ -24,7 +21,6 @@ static int printPath(tnode* root, int key)
         }
         return printPath(root->left, key);
     }
-
     if (root->right != NULL)
     {
         printf(", ");
@@ -70,49 +66,24 @@ int searchKeyPath(tnode* root, int key)
     return 0;
 }
 
-// für Subtree Suche
-static int findNode(tnode* root, int key, tnode** found)
-{
-    if (root == NULL)
-    {
-        return 0;
-    }
-
-    if (root->key == key)
-    {
-        *found = root;
-        return 1;
-    }
-
-    if (key < root->key)
-    {
-        return findNode(root->left, key, found);
-    }
-    else
-    {
-        return findNode(root->right, key, found);
-    }
-}
-
 int containsSubtree(tnode* root, tnode* subtree)
 {
     if (subtree == NULL)
     {
         return 1;
     }
-
     if (root == NULL)
     {
         return 0;
     }
-
-    tnode* match = NULL;
-
-    if (!findNode(root, subtree->key, &match))
+    if (root->key == subtree->key)
     {
-        return 0;
+        if (containsSubtree(root->left, subtree->left) &&
+            containsSubtree(root->right, subtree->right))
+        {
+            return 1;
+        }
     }
-
-    return containsSubtree(match->left, subtree->left) &&
-           containsSubtree(match->right, subtree->right);
+    return containsSubtree(root->left, subtree) ||
+           containsSubtree(root->right, subtree);
 }
