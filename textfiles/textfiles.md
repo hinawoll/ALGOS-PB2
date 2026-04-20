@@ -35,8 +35,8 @@
   ```
 *kein AVL (1 2 3 4 5)
   ```c
-　./treecheck textfiles/unbalanced.txt
-  treecheck.exe textfiles/unbalanced.txt
+　./treecheck textfiles/tree_unbalanced.txt
+  treecheck.exe textfiles/tree_unbalanced.txt
   ```
 
 **2-1. Einfache Suche**
