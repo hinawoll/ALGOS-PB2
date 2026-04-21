@@ -29,14 +29,14 @@
   ```
 **1. Baum einlesen + AVL-Check + Statistik**
 
-*AVL (5 3 7)
+*case1: AVL (5 3 7)
   ```c
   ./treecheck textfiles/tree_basic.txt
   ```
 ```c
   treecheck.exe textfiles/tree_basic.txt
   ```
-*kein AVL (1 2 3 4 5)
+*case2: kein AVL (1 2 3 4 5)
   ```c
 　./treecheck textfiles/tree_unbalanced.txt
   ```
@@ -63,6 +63,7 @@
   ```
 
 **2-2. Subtree Suche**
+
 *case1: found (5 3 8 7 22 2 / 5 7)
   ```c
   ./treecheck textfiles/tree_normal.txt textfiles/subtree_found.txt
