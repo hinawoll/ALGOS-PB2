@@ -28,7 +28,8 @@
   gcc main.c tree.c avl.c fileio.c search.c -o treecheck
   ```
 **1. Baum einlesen + AVL-Check + Statistik**
-*AVL (5 3 7)*
+
+*AVL (5 3 7)
   ```c
   ./treecheck textfiles/tree_basic.txt
   ```
@@ -44,6 +45,7 @@
   ```
 
 **2-1. Einfache Suche**
+
 *case1: found (5 3 8 7 22 2 / 7)
   ```c
   ./treecheck textfiles/tree_normal.txt textfiles/search_key.txt
